@@ -1,12 +1,17 @@
-function slope(x1, y1, x2, y2) {
-    if (x1 === x2) {
-        throw new Error("Undefined slope (vertical line)");
-    }
-    return (y2 - y1) / (x2 - x1);
+function getAirQualityCategory(aqi) {
+    if (aqi >= 0 && aqi <= 50) return "Good";
+    if (aqi >= 51 && aqi <= 100) return "Moderate";
+    if (aqi >= 101 && aqi <= 150) return "Unhealthy for Sensitive Groups";
+    if (aqi >= 151 && aqi <= 200) return "Unhealthy";
+    if (aqi >= 201 && aqi <= 300) return "Very Unhealthy";
+    return "Hazardous"; 
 }
 
-console.log(`Slope of (1,2) to (3,6) is ${slope(1, 2, 3, 6)}`);
-console.log(`Slope of (-2,4) to (2,8) is ${slope(-2, 4, 2, 8)}`);
-console.log(`Slope of (5,10) to (10,15) is ${slope(5, 10, 10, 15)}`);
+console.log(`AQI 30 is ${getAirQualityCategory(30)}`);
+console.log(`AQI 75 is ${getAirQualityCategory(78)}`);
+console.log(`AQI 120 is ${getAirQualityCategory(122)}`);
+console.log(`AQI 180 is ${getAirQualityCategory(182)}`);
+console.log(`AQI 250 is ${getAirQualityCategory(250)}`);
+console.log(`AQI 350 is ${getAirQualityCategory(350)}`);
 
-export { slope };
+export { getAirQualityCategory };
